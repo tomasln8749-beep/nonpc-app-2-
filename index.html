@@ -11,19 +11,35 @@
   <link rel="apple-touch-icon" href="icons/icon-192.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app">
+  <main class="app app-layout">
     <section class="card">
-      <p class="eyebrow">Salir de la rutina</p>
-      <h1>NoNPC</h1>
+      <nav class="top-nav" aria-label="Navegacion principal">
+        <a class="nav-link nav-link-active" href="./index.html">Inicio</a>
+        <a class="nav-link" href="./missions/">Misiones</a>
+        <a class="nav-link" href="./community/">Comunidad</a>
+        <a class="nav-link" href="./challenges/">Desafios</a>
+        <a class="nav-link" href="./feed/">Feed</a>
+        <a class="nav-link" href="./ranking/">Ranking</a>
+        <a class="nav-link" href="./profile/">Perfil</a>
+      </nav>
+
+      <div class="hero">
+        <p class="eyebrow">Salir de la rutina</p>
+        <h1>NoNPC</h1>
+        <p class="hero-copy">Micro misiones para romper el piloto automatico y sumar progreso real.</p>
+      </div>
 
       <section class="stats-grid" aria-label="Estado del jugador">
-        <article class="stat-card">
-          <span class="stat-label">XP total</span>
-          <strong class="stat-value" id="xp">XP: 0</strong>
+        <article class="stat-card stat-card-xp">
+          <span class="stat-label">Energia acumulada</span>
+          <div class="xp-chip">
+            <span class="xp-chip-glow"></span>
+            <strong class="stat-value" id="xp">XP: 0</strong>
+          </div>
         </article>
         <article class="stat-card">
           <span class="stat-label">Nivel actual</span>
@@ -41,10 +57,23 @@
         </div>
       </section>
 
+      <section class="daily-card" aria-label="Mision diaria">
+        <div class="daily-header">
+          <p class="mission-label">MISION DIARIA</p>
+          <span class="mission-xp" id="dailyMissionXp">30 XP</span>
+        </div>
+        <p class="daily-mission" id="dailyMissionText"></p>
+        <p class="daily-status" id="dailyMissionStatus"></p>
+        <button id="completeDailyMissionBtn" class="btn btn-daily" type="button">Completar diaria</button>
+      </section>
+
       <div class="mission-box" id="missionBox">
         <div class="mission-meta">
           <p class="mission-label">Mision actual</p>
-          <span class="difficulty-badge" id="difficulty">Facil</span>
+          <div class="mission-tags">
+            <span class="mission-xp" id="missionXp">5 XP</span>
+            <span class="difficulty-badge" id="difficulty">Facil</span>
+          </div>
         </div>
         <p class="mission" id="mission"></p>
         <div class="xp-toast" id="xpToast" aria-live="polite">+10 XP</div>
@@ -52,7 +81,7 @@
 
       <div class="actions">
         <button id="newMissionBtn" class="btn btn-secondary" type="button">Nueva mision</button>
-        <button id="chaosMissionBtn" class="btn btn-chaos" type="button">Arruiname el dia</button>
+        <button id="chaosMissionBtn" class="btn btn-chaos" type="button">Arruiname el dia 😈</button>
         <button id="completeMissionBtn" class="btn btn-primary" type="button">Completar mision</button>
       </div>
     </section>
